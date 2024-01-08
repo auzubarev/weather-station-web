@@ -26,4 +26,8 @@ php8.3 artisan migrate --force
 # Exit maintenance mode
 php8.3 artisan up
 
+npm install
+
+npm run build
+
 echo "Deployment finished!"
