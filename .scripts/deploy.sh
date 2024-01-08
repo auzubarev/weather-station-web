@@ -1,4 +1,6 @@
 #!/bin/bash
+export PATH=/usr/local/php/cgi/8.3/bin/:$PATH
+
 set -e
 
 echo "Deployment started ..."
@@ -8,7 +10,7 @@ echo "Deployment started ..."
 (php artisan down) || true
 
 # Pull the latest version of the app
-git pull origin main
+git fetch origin main
 
 # Install composer dependencies
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
