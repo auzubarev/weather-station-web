@@ -4,9 +4,6 @@ set -e
 
 echo "Deployment started ..."
 
-export PATH=/usr/local/php/cgi/8.3/bin/:$PATH
-php -v
-
 # Enter maintenance mode or return true
 # if already is in maintenance mode
 (php artisan down) || true
