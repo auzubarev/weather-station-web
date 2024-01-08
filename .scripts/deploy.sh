@@ -1,5 +1,6 @@
 #!/bin/bash
 export PATH=/usr/local/php/cgi/8.3/bin/:$PATH
+php -v
 
 set -e
 
