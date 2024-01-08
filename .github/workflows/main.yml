@@ -17,6 +17,7 @@ jobs:
       - name: 📂 Deploy to server via ssh
         uses: appleboy/ssh-action@v1.0.3
         with:
+          php_version: 8.3
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
