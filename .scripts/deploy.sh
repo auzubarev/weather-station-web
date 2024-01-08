@@ -12,7 +12,7 @@ echo "Deployment started ..."
 git pull
 
 # Install composer dependencies
-composer-php8.3 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+composer-php7.4 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 # Clear the old cache
 php artisan clear-compiled

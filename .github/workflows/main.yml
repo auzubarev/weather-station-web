@@ -17,9 +17,8 @@ jobs:
       - name: 📂 Deploy to server via ssh
         uses: appleboy/ssh-action@v1.0.3
         with:
-          php_version: 8.3
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: "php -v && cd ~/auzubarev/public_html/meteo.auzubarev.ru/weather-station-web && sh ./.scripts/deploy.sh"
+          script: "cd ~/auzubarev/public_html/meteo.auzubarev.ru/weather-station-web && sh ./.scripts/deploy.sh"
