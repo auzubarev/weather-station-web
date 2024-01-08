@@ -21,4 +21,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: ${{ secrets.SCRIPT }}
+          script: "cd ~/auzubarev/public_html/meteo.auzubarev.ru/weather-station-web && sh ./.scripts/deploy.sh"
