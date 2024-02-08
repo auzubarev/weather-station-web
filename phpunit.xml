@@ -3,6 +3,7 @@
   <testsuites>
     <testsuite name="Test Suite">
       <file>./tests/DummyTest.php</file>
+      <file>./tests/HttpTest.php</file>
     </testsuite>
   </testsuites>
   <source>

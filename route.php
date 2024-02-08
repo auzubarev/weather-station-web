@@ -12,6 +12,11 @@ $app->get('/', function (Request $request, Response $response, $args) {
     return $response;
 });
 
+$app->get('/test/', function (Request $request, Response $response, $args) {
+    $response->getBody()->write('test ok');
+    return $response;
+});
+
 $app->add(new TrailingSlash(true));
 
 $app->run();
