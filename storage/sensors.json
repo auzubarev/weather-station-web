@@ -1,0 +1,10 @@
+[
+  {
+    "code": "ds18b20",
+    "measures": [
+      "temperature"
+    ],
+    "name": "DS18B20",
+    "description": "Датчик температуры"
+  }
+]
