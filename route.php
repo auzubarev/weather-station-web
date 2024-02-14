@@ -24,6 +24,12 @@ $app->post('/api/v1/', function (Request $request, Response $response, $args) {
     return $response->withHeader('Content-Type', 'application/json');
 })->add(new Auth());
 
+$app->post('/api/v1/add/', function (Request $request, Response $response, $args) {
+    $id = \App\Service\Api::add(json_decode($request->getBody(), true));
+    $response->getBody()->write(json_encode(['id' => $id]));
+    return $response->withHeader('Content-Type', 'application/json');
+})->add(new Auth());
+
 $app->add(new TrailingSlash(true));
 
 $app->run();
