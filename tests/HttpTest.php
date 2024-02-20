@@ -42,14 +42,14 @@ class HttpTest extends TestCase {
     }
 
     public function testApiAdd() {
-        $data = ['value' => 10.3, 'sensor' => 'test', 'measure' => 'temperature'];
+        $data = ['temperature' => 10.3, 'humidity' => 2.3, 'pressure' => 3.2];
         $client = $this->getApiClient();
         $response = $client->request('POST', URL.'/api/v1/add/', ['body' => json_encode($data)]);
         $id = json_decode($response->getBody(), true)['id'];
         $sensorData = SensorsData::find($id);
-        $this->assertEquals($sensorData->reading, $data['value']);
-        $this->assertEquals($sensorData->sensor_code, $data['sensor']);
-        $this->assertEquals($sensorData->measure_code, $data['measure']);
+        $this->assertEquals($sensorData->temperature, $data['temperature']);
+        $this->assertEquals($sensorData->humidity, $data['humidity']);
+        $this->assertEquals($sensorData->pressure, $data['pressure']);
         $sensorData->delete();
     }
 
