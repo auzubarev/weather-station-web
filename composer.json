@@ -15,7 +15,9 @@
         }
     },
     "scripts": {
-        "test": "phpunit --configuration phpunit.xml"
+        "test": "phpunit --configuration phpunit.xml",
+        "rollback": "phinx rollback",
+        "migrate": "phinx migrate"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
