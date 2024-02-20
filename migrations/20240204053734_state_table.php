@@ -19,35 +19,12 @@ final class StateTable extends AbstractMigration
      */
     public function change(): void {
         $table = $this->table('sensors_data');
-        $table->addColumn('reading', 'double')
-            ->addColumn('sensor_code', 'string')
-            ->addColumn('measure_code', 'string')
+        $table->addColumn('temperature', 'float')
+            ->addColumn('humidity', 'float')
+            ->addColumn('pressure', 'float')
             ->addColumn('timestamp', 'datetime')
-            ->addTimestamps()
-            ->addIndex(['reading'])
-            ->addIndex(['sensor_code'])
-            ->addIndex(['measure_code'])
-            ->addIndex(['measure_code'])
-            ->create();
-
-        $table = $this->table('statistics');
-        $table->addColumn('average', 'double')
-            ->addColumn('minimum', 'double')
-            ->addColumn('maximum', 'double')
-            ->addColumn('sensor_code', 'string')
-            ->addColumn('measure_code', 'string')
-            ->addColumn('period', 'string')
-            ->addColumn('start_time', 'datetime')
-            ->addColumn('end_time', 'datetime')
-            ->addTimestamps()
-            ->addIndex(['average'])
-            ->addIndex(['minimum'])
-            ->addIndex(['maximum'])
-            ->addIndex(['sensor_code'])
-            ->addIndex(['measure_code'])
-            ->addIndex(['period'])
-            ->addIndex(['start_time'])
-            ->addIndex(['end_time'])
+            ->addIndex(['timestamp'])
             ->create();
     }
+
 }

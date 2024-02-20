@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class SensorsData extends Model {
     protected $table = 'sensors_data';
     protected $primaryKey = 'id';
+    public $timestamps = false;
 
-    protected $fillable = ['reading', 'sensor_code', 'measure_code', 'timestamp'];
+    protected $fillable = ['temperature', 'humidity', 'pressure', 'timestamp'];
 
 }
