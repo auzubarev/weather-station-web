@@ -22,4 +22,21 @@ class Api {
         return 0;
     }
 
+    static public function get($data) {
+        $res = [];
+        $readings = SensorsData::where('timestamp', '>', '2024-02-20')->where('timestamp', '<', '2024-02-23')->get();
+        foreach ($readings as $reading) {
+            $y = $reading->temperature;
+            if($data['reading'] === 'pressure')
+                $y = $reading->pressure;
+            elseif($data['reading'] === 'humidity')
+                $y = $reading->humidity;
+            $res[] = [
+                'x' => $reading->timestamp,
+                'y' => $y
+            ];
+        }
+        return $res;
+    }
+
 }

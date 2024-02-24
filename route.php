@@ -30,6 +30,14 @@ $app->post('/api/v1/add/', function (Request $request, Response $response, $args
     return $response->withHeader('Content-Type', 'application/json');
 })->add(new Auth());
 
+
+$app->post('/api/v1/get/', function (Request $request, Response $response, $args) {
+    $data = \App\Service\Api::get(json_decode($request->getBody(), true));
+    $response->getBody()->write(json_encode($data));
+    return $response->withHeader('Content-Type', 'application/json');
+});
+
+
 $app->add(new TrailingSlash(true));
 
 $app->run();
