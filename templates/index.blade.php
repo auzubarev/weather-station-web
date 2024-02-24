@@ -10,26 +10,32 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://kit.fontawesome.com/645991e92d.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="/script.js?v={{time()}}"></script>
 </head>
 <body>
 <nav class="navbar bg-body-tertiary">
     <div class="container">
         <a class="navbar-brand" href="#">
             <i class="fa-solid fa-cloud-sun text-primary me-2 h2"></i>
-            <span class="h2">Погода в поселке</span>
+            <span class="h2 me-2">Погода в поселке</span>
+            <span style="display: none;" id="spinner" class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </span>
         </a>
     </div>
 </nav>
 <div style="min-height: 900px;" class="container mt-3">
-    <select class="form-select mb-3" style="max-width: 400px;">
-        <option selected>Температура</option>
-        <option value="1">Давление</option>
-        <option value="2">Влажность</option>
-    </select>
-    <canvas id="chart" class="mb-5">
-
-    </canvas>
+    <div x-data="meteo()">
+        <select x-model="reading" @change="update()" class="form-select mb-3" style="max-width: 400px;">
+            <option value="temperature" selected>Температура</option>
+            <option value="pressure">Давление</option>
+            <option value="humidity">Влажность</option>
+        </select>
+        <canvas x-ref="chart" id="chart" class="mb-5"></canvas>
+    </div>
     <div class="mb-5" style="max-width: 800px;">
         <h1 class="mb-5">Погода в поселке</h1>
 
@@ -62,8 +68,6 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="/script.js"></script>
+
 </body>
 </html>
